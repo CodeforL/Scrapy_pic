@@ -1,5 +1,5 @@
 项目内容：
-总览：获取http://www.ja14b.com/cn/genres.php 下的每个fanhao的名字，id以及图片url，将其存储到excel文件当中，并且
+总览：获取http://www.ja14b.com/cn/genres.php 下的每个分类下的fanhao的名字，id以及图片url，将其存储到excel文件当中，并且
      继承scrapy.pipelines.images.ImagesPipeline类来下载图片文件到项目的pic文件夹下
 具体方法：
 1.以 http://www.ja14b.com/cn/genres.php （心静自然凉） 为启动页面，分别获取每个标签对应的url链接，构建list列表存储
