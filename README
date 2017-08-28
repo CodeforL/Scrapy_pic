@@ -1,0 +1,23 @@
+项目内容：
+总览：获取http://www.ja14b.com/cn/genres.php下的每个fanhao的名字，id以及图片url，将其存储到excel文件当中，并且
+     继承scrapy.pipelines.images.ImagesPipeline类来下载图片文件到项目的pic文件夹下
+具体方法：
+1.以 http://www.ja14b.com/cn/genres.php（心静自然凉） 为启动页面，分别获取每个标签对应的url链接，构建list列表存储
+2.针对每个URL链接，生成scrpy.Request请求
+3.对每个细分类页面，使用xpath提取器分别获取每个的fanhao、名字和图片的url链接，以自定义的item类返回
+，若有下一页，则生成下一页的scrapy.request请求
+4.在settings.py文件中添加
+  ITEM_PIPELINES = {
+      #'scrapy.pipelines.images.ImagesPipeline':1,
+      'NiDongDe.pipelines.MyImagesPipeline':1,
+      'NiDongDe.pipelines.NidongdePipeline': 300,
+  }
+  IMAGES_URLS_FIELD = 'pic_url'
+  IMAGES_STORE = './pic'
+5.MyImagesPipeline继承scrapy.pipelines.images.ImagesPipeline,重载了file_path方法，自定义下载图片的文件名
+6.NidongdePipeline 使用了xlwt，xlrd，xlutils库获取item中的各个字段，写入excel文件当中 
+
+我不知道该怎么做的点：
+1.MyImagesPipeline中如何能够获取item['name_id']的内容，将其作为下载图片的名称
+2.若当前ip被封，如何使用代理ip访问
+3.感谢你看到这里，倘若你看过了我的项目，非常希望能够得知你对我这个小项目建议和想法，一切为了美好的明天，谢谢。
