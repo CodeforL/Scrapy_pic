@@ -1,7 +1,7 @@
 项目内容：
-总览：获取http://www.ja14b.com/cn/genres.php 下的每个分类下的fanhao的名字，id以及图片url，将其存储到excel文件当中，并且继承scrapy.pipelines.images.ImagesPipeline类来下载图片文件到项目的pic文件夹下
+总览：获取网站下的每个分类下的的名字，id以及图片url，将其存储到excel文件当中，并且继承scrapy.pipelines.images.ImagesPipeline类来下载图片文件到项目的pic文件夹下
 具体方法：
-1.以 http://www.ja14b.com/cn/genres.php （心静自然凉） 为启动页面，分别获取每个标签对应的url链接，构建list列表存储
+1.以为网站分类页启动页面，分别获取每个标签对应的url链接，构建list列表存储
 2.针对每个URL链接，生成scrpy.Request请求
 3.对每个细分类页面，使用xpath提取器分别获取每个的fanhao、名字和图片的url链接，以自定义的item类返回
 ，若有下一页，则生成下一页的scrapy.request请求
