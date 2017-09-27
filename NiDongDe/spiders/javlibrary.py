@@ -23,7 +23,7 @@ class JavlibrarySpider(scrapy.Spider):
         # for i in genres.keys():
             # yield scrapy.Request(url = genres[i],callback = self.parse_page)
             
-        yield scrapy.Request(url = genres['巨乳'],callback = self.parse_page)
+        yield scrapy.Request(url = genres['恐怖'],callback = self.parse_page)
 
     def parse_page(self,response):
         lis = response.xpath('//div[@class="videos"]/div')
